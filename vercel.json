@@ -1,4 +1,18 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "tanstack-start"
+  "framework": "tanstack-start",
+  "functions": {
+    "api/index.mjs": {
+      "includeFiles": [
+        "dist/server/**",
+        "dist/client/**"
+      ]
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api(?:/|$)).*)",
+      "destination": "/api"
+    }
+  ]
 }
